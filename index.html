@@ -1,1 +1,420 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Poster Sức Khỏe Số - Tỷ lệ 9:16</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Be Vietnam Pro', sans-serif;
+        }
 
+        body {
+            background-color: #0f172a;
+            color: #f8fafc;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        /* Khung Poster tỷ lệ 9:16 chuẩn */
+        .poster-container {
+            width: 100%;
+            max-width: 540px;
+            aspect-ratio: 9 / 16;
+            background: linear-gradient(165deg, #064e3b 0%, #0f172a 40%, #0f2b24 100%);
+            border-radius: 24px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(16, 185, 129, 0.2);
+            padding: 28px 24px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Họa tiết trang trí nền */
+        .bg-glow-1 {
+            position: absolute;
+            top: -10%;
+            right: -10%;
+            width: 250px;
+            height: 250px;
+            background: radial-gradient(circle, rgba(16, 185, 129, 0.25) 0%, rgba(0,0,0,0) 70%);
+            z-index: 1;
+        }
+
+        .bg-glow-2 {
+            position: absolute;
+            bottom: -5%;
+            left: -5%;
+            width: 220px;
+            height: 220px;
+            background: radial-gradient(circle, rgba(52, 211, 153, 0.15) 0%, rgba(0,0,0,0) 70%);
+            z-index: 1;
+        }
+
+        .content {
+            position: relative;
+            z-index: 2;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        /* HEADER */
+        .header {
+            text-align: center;
+            margin-bottom: 12px;
+        }
+
+        .badge {
+            display: inline-block;
+            background: rgba(16, 185, 129, 0.15);
+            border: 1px solid rgba(52, 211, 153, 0.3);
+            color: #34d399;
+            font-size: 11px;
+            font-weight: 700;
+            padding: 4px 12px;
+            border-radius: 50px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+
+        .main-title {
+            font-size: 20px;
+            font-weight: 900;
+            line-height: 1.25;
+            background: linear-gradient(135deg, #ffffff 0%, #a7f3d0 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-transform: uppercase;
+            margin-bottom: 6px;
+        }
+
+        .sub-title {
+            font-size: 11px;
+            color: #94a3b8;
+            font-weight: 500;
+        }
+
+        /* GRAPHIC BANNER */
+        .graphic-box {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            padding: 10px 14px;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            backdrop-filter: blur(8px);
+        }
+
+        .graphic-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .graphic-icon {
+            width: 32px;
+            height: 32px;
+            background: rgba(16, 185, 129, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+        }
+
+        .graphic-label {
+            font-size: 10px;
+            font-weight: 600;
+            color: #cbd5e1;
+        }
+
+        .graphic-center {
+            text-align: center;
+            font-size: 22px;
+        }
+
+        /* SECTION TIÊU ĐỀ CHUNG */
+        .section-title {
+            font-size: 12px;
+            font-weight: 800;
+            color: #34d399;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        /* SECTION 1: BẪY VÔ THỨC */
+        .section-box {
+            background: rgba(15, 23, 42, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 14px;
+            padding: 10px 12px;
+            margin-bottom: 10px;
+        }
+
+        .trap-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            padding: 5px 0;
+        }
+
+        .trap-item:not(:last-child) {
+            border-bottom: 1px dashed rgba(255, 255, 255, 0.06);
+        }
+
+        .trap-icon {
+            font-size: 15px;
+            background: rgba(239, 68, 68, 0.15);
+            padding: 4px;
+            border-radius: 8px;
+            min-width: 26px;
+            height: 26px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .trap-text h4 {
+            font-size: 11px;
+            font-weight: 700;
+            color: #f87171;
+        }
+
+        .trap-text p {
+            font-size: 10px;
+            color: #94a3b8;
+            line-height: 1.3;
+        }
+
+        /* SECTION 2: 3 KHÔNG */
+        .rule-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            margin-bottom: 10px;
+        }
+
+        .rule-card {
+            background: rgba(239, 68, 68, 0.08);
+            border: 1px solid rgba(239, 68, 68, 0.2);
+            border-radius: 10px;
+            padding: 6px 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 10.5px;
+            font-weight: 600;
+            color: #fca5a5;
+        }
+
+        .rule-icon {
+            font-size: 12px;
+        }
+
+        /* SECTION 3: DIGITAL DETOX */
+        .detox-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            margin-bottom: 12px;
+        }
+
+        .detox-card {
+            background: rgba(16, 185, 129, 0.1);
+            border: 1px solid rgba(52, 211, 153, 0.2);
+            border-radius: 10px;
+            padding: 7px 10px;
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+        }
+
+        .detox-icon {
+            font-size: 12px;
+            margin-top: 1px;
+        }
+
+        .detox-text h5 {
+            font-size: 11px;
+            font-weight: 700;
+            color: #6ee7b7;
+        }
+
+        .detox-text p {
+            font-size: 9.5px;
+            color: #cbd5e1;
+            line-height: 1.25;
+        }
+
+        /* FOOTER */
+        .footer {
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.2) 0%, rgba(6, 78, 59, 0.4) 100%);
+            border: 1px solid rgba(52, 211, 153, 0.3);
+            border-radius: 14px;
+            padding: 10px 12px;
+            text-align: center;
+        }
+
+        .slogan {
+            font-size: 10.5px;
+            font-weight: 700;
+            color: #ffffff;
+            font-style: italic;
+            line-height: 1.35;
+            margin-bottom: 6px;
+        }
+
+        .author {
+            font-size: 9px;
+            color: #a7f3d0;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="poster-container">
+        <!-- Nền phát sáng trang trí -->
+        <div class="bg-glow-1"></div>
+        <div class="bg-glow-2"></div>
+
+        <div class="content">
+            <!-- HEADER -->
+            <div class="header">
+                <span class="badge">Sức Khỏe Số / Digital Wellbeing</span>
+                <h1 class="main-title">Sống Chủ Động<br>Dùng Công Nghệ Thông Minh</h1>
+                <p class="sub-title">Bật Tập Trung • Tắt Phân Tâm • Nâng Cao Chất Lượng Sống</p>
+            </div>
+
+            <!-- ILLUSTRATION BANNER -->
+            <div class="graphic-box">
+                <div class="graphic-item">
+                    <div class="graphic-icon">📚</div>
+                    <span class="graphic-label">Tri thức</span>
+                </div>
+                <div class="graphic-center">
+                    <span>🧘‍♂️📱🌿</span>
+                </div>
+                <div class="graphic-item">
+                    <div class="graphic-icon">⚽</div>
+                    <span class="graphic-label">Thể thao</span>
+                </div>
+            </div>
+
+            <!-- SECTION 1: BẪY VÔ THỨC -->
+            <div class="section-box">
+                <div class="section-title">
+                    <span>⚠️</span> Bẫy "Vô Thức" Thường Gặp
+                </div>
+                <div class="trap-item">
+                    <div class="trap-icon">🍚</div>
+                    <div class="trap-text">
+                        <h4>Vừa ăn vừa xem điện thoại</h4>
+                        <p>Ăn không mất ngon, phân tâm não bộ, dễ gây đau dạ dày.</p>
+                    </div>
+                </div>
+                <div class="trap-item">
+                    <div class="trap-icon">⏱️</div>
+                    <div class="trap-text">
+                        <h4>Bật máy 20s mỗi 25 phút trên lớp</h4>
+                        <p>Làm đứt gãy sự chú ý, mất khả năng tư duy tập trung sâu.</p>
+                    </div>
+                </div>
+                <div class="trap-item">
+                    <div class="trap-icon">🌙</div>
+                    <div class="trap-text">
+                        <h4>Lướt TikTok / Game trước khi ngủ</h4>
+                        <p>Ánh sáng xanh ức chế Melatonin, đánh cắp giấc ngủ sâu.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SECTION 2: QUY TẮC 3 KHÔNG -->
+            <div>
+                <div class="section-title">
+                    <span>🛑</span> Quy Tắc "3 KHÔNG" Đơn Giản
+                </div>
+                <div class="rule-grid">
+                    <div class="rule-card">
+                        <span class="rule-icon">❌</span>
+                        <span>KHÔNG vừa ăn vừa lướt mạng xã hội.</span>
+                    </div>
+                    <div class="rule-card">
+                        <span class="rule-icon">❌</span>
+                        <span>KHÔNG chạm vào điện thoại trong giờ nghe giảng.</span>
+                    </div>
+                    <div class="rule-card">
+                        <span class="rule-icon">❌</span>
+                        <span>KHÔNG chơi game / lướt TikTok 30 phút trước ngủ.</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SECTION 3: BỘ CÔNG CỤ DIGITAL DETOX -->
+            <div>
+                <div class="section-title">
+                    <span>🛠️</span> Bộ Công Cụ "Digital Detox" 5 Phút
+                </div>
+                <div class="detox-grid">
+                    <div class="detox-card">
+                        <span class="detox-icon">🟢</span>
+                        <div class="detox-text">
+                            <h5>Bật Chế Độ Tập Trung (Focus Mode)</h5>
+                            <p>Tự động chặn ứng dụng giải trí & thông báo trong giờ học.</p>
+                        </div>
+                    </div>
+                    <div class="detox-card">
+                        <span class="detox-icon">🟢</span>
+                        <div class="detox-text">
+                            <h5>Gom Thời Gian Check Tin Nhắn</h5>
+                            <p>Chỉ xử lý Zalo/Mess vào giờ ra chơi hoặc đầu/cuối ngày.</p>
+                        </div>
+                    </div>
+                    <div class="detox-card">
+                        <span class="detox-icon">🟢</span>
+                        <div class="detox-text">
+                            <h5>Đổi Màu Màn Hình Đen Trắng (Grayscale)</h5>
+                            <p>Giảm sự kích thích từ màu sắc, bớt thèm lướt mạng sau 21h.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FOOTER -->
+            <div class="footer">
+                <div class="slogan">
+                    "Điện thoại là công cụ phục vụ cuộc sống,<br>đừng biến nó thành kẻ điều khiển thời gian của bạn!"
+                </div>
+                <div class="author">
+                    SINH VIÊN THỰC HIỆN • BÀI TẬP QUẢN LÝ SỨC KHỎE SỐ
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
